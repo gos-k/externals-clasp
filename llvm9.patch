@@ -1,0 +1,18 @@
+diff -u -r org/llvm/projects/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cc source/llvm/projects/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cc
+--- org/llvm/projects/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cc	2021-03-25 21:50:34.175900111 +0900
++++ source/llvm/projects/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cc	2021-03-25 21:55:28.905865374 +0900
+@@ -1126,10 +1126,10 @@
+ CHECK_SIZE_AND_OFFSET(ipc_perm, gid);
+ CHECK_SIZE_AND_OFFSET(ipc_perm, cuid);
+ CHECK_SIZE_AND_OFFSET(ipc_perm, cgid);
+-#if !defined(__aarch64__) || !SANITIZER_LINUX || __GLIBC_PREREQ (2, 21)
+-/* On aarch64 glibc 2.20 and earlier provided incorrect mode field.  */
+-CHECK_SIZE_AND_OFFSET(ipc_perm, mode);
+-#endif
++//#if !defined(__aarch64__) || !SANITIZER_LINUX || __GLIBC_PREREQ (2, 21)
++///* On aarch64 glibc 2.20 and earlier provided incorrect mode field.  */
++//CHECK_SIZE_AND_OFFSET(ipc_perm, mode);
++//#endif
+ 
+ CHECK_TYPE_SIZE(shmid_ds);
+ CHECK_SIZE_AND_OFFSET(shmid_ds, shm_perm);
